@@ -15,9 +15,5 @@ class Item(object):
         self.item_purchase_option = option
 
     def print(self):
-        print(self.item_name)
-        print(self.item_price)
-        print(self.item_condition)
-        print(self.item_shipping_price)
-        print(self.item_purchase_option)
-        print()
+        return (self.item_name + "\n" + self.item_price + " \n" + self.item_condition + "\n"
+                     + self.item_shipping_price + "\n" + self.item_purchase_option + "\n")

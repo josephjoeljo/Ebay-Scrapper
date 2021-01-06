@@ -10,3 +10,4 @@ bot.parse_html_result()
 
 for item in bot.item_list:
     print(item.print())
+    # print()

@@ -41,11 +41,19 @@ class Spider(object):
         counter = 0
         soup = BeautifulSoup(self.data, features="html.parser")
         listings = soup.find_all('li', attrs={'class': 's-item'})
-
+        # print(soup.prettify())
         for listing in listings:
 
             item_name = str(listing.find('h3', attrs={'class': 's-item__title'}))
             item_name = item_name[item_name.find(">")+1:-5]
+            subst = "New Listing"
+            subst2 = "BOLD"
+
+            if subst in item_name:
+                item_name = item_name[item_name.find("</span>")+7:]
+
+            if subst2 in item_name:
+                item_name = item_name[item_name.find("BOLD")+6:-7]
 
             item_status = str(listing.find('span', attrs={'class': 'SECONDARY_INFO'}))
             item_status = item_status[item_status.find('>')+1:-7]
